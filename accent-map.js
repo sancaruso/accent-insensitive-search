@@ -712,6 +712,8 @@ var accentMap = {
   'ｋ':'k',
   'ｏ':'o',
   'ｓ':'s',
-  'ｗ':'w'};
+  'ｗ':'w',
+  ' ': '\s+'
+};
 
 export default accentMap;

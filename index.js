@@ -29,6 +29,8 @@ function accentInsensitiveSearch(toSearch, searchIn) {
   if (!toSearch) {
       return true;
   }
+  toSearch = toSearch.replace(/\s+/g, ' ');
+  searchIn = searchIn.replace(/\s+/g, ' ');
   const re = accentRegExp(toSearch);
   return re.test(searchIn.toLowerCase());
 }
