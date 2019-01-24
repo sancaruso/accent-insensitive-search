@@ -716,4 +716,4 @@ var accentMap = {
   ' ': '\s+'
 };
 
-export default accentMap;
+module.exports = accentMap;

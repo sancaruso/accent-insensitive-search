@@ -1,4 +1,4 @@
-import accentMap from './accent-map';
+var accentMap = require('./accent-map');
 
 function accentRegExp(word) {
   word = word.toLowerCase();
@@ -75,4 +75,4 @@ function accentInsensitiveSearch(toSearch, searchIn) {
   return res;
 }
 
-export default accentInsensitiveSearch;
+module.exports = accentInsensitiveSearch;
