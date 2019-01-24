@@ -12,6 +12,11 @@ tests.push({
   errorMsg: 'accentInsensitiveSearch(\'mü\', \'Müller\') should be true'
 });
 tests.push({
+  result: accentInsensitiveSearch('mü', 'Muller') === true,
+  successMsg: 'accentInsensitiveSearch(\'mü\', \'Muller\') is true',
+  errorMsg: 'accentInsensitiveSearch(\'mü\', \'Muller\') should be true'
+});
+tests.push({
   result: accentInsensitiveSearch('mul', 'Müller') === true,
   successMsg: 'accentInsensitiveSearch(\'mul\', \'Müller\') is true',
   errorMsg: 'accentInsensitiveSearch(\'mul\', \'Müller\') should be true'
@@ -35,6 +40,11 @@ tests.push({
   result: accentInsensitiveSearch('Jean chris', 'Jean-Christophe') === true,
   successMsg: 'accentInsensitiveSearch(\'Jean chris\', \'Jean-Christophe\') is true',
   errorMsg: 'accentInsensitiveSearch(\'Jean chris\', \'Jean-Christophe\') should be true'
+});
+tests.push({
+  result: accentInsensitiveSearch('mr r', 'Mr. Robin') === true,
+  successMsg: 'accentInsensitiveSearch(\'mr r\', \'Mr. Robin\') is true',
+  errorMsg: 'accentInsensitiveSearch(\'mr r\', \'Mr. Robin\') should be true'
 });
 
 var errors = [];

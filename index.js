@@ -56,8 +56,8 @@ function accentInsensitiveSearch(toSearch, searchIn, options = {}) {
   if (!toSearch) {
       return true;
   }
-  toSearch = toSearch.replace(/\s+|-/g, ' ');
-  searchIn = searchIn.replace(/\s+|-/g, ' ').toLowerCase();
+  toSearch = toSearch.replace(/\.|-/g, ' ').replace(/\s+/g, ' ');
+  searchIn = searchIn.replace(/\.|-/g, ' ').replace(/\s+/g, ' ').toLowerCase();
   const re = accentRegExp(toSearch, options);
   var allStrings = replaceString(searchIn);
   var res = false;
