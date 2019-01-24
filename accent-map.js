@@ -712,8 +712,7 @@ var accentMap = {
   'ｋ':'k',
   'ｏ':'o',
   'ｓ':'s',
-  'ｗ':'w',
-  ' ': '\s+'
+  'ｗ':'w'
 };
 
 module.exports = accentMap;

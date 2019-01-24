@@ -1,8 +1,8 @@
 var accentMap = require('./accent-map');
 
-function accentRegExp(word) {
+function accentRegExp(word, options = {}) {
   word = word.toLowerCase();
-  var res = '';
+  var res = options.startWith ? '^' : '';
   for (var i = 0; i < word.length; i++) {
       const char = word.charAt(i);
       const mapped = accentMap[char];
@@ -31,33 +31,25 @@ function replaceString(word) {
                 resultats[index] = res + char;
             });
         } else if (mapped instanceof Array) {
-            var resultats_copy = resultats.slice();
-            resultats.forEach(function(res, index) {
-                resultats[index] = res + char;
-            });
+            var newResultats = [];
             for (let j = 0; j < mapped.length; j++) {
-                var resultats_copy_2 = resultats_copy.slice();
-                resultats_copy_2.forEach(function(res, index) {
-                    resultats_copy_2[index] = res + mapped[j];
+                var resultats_copy = resultats.slice();
+                resultats_copy.forEach(function(res, index) {
+                    resultats_copy[index] = res + mapped[j];
                 });
-                resultats = resultats.concat(resultats_copy_2);
+                newResultats = newResultats.concat(resultats_copy);
             }
+            resultats = newResultats;
         } else {
-            var resultats_copy = resultats.slice();
             resultats.forEach((res, index) => {
-                resultats[index] = res + char;
+                resultats[index] = res + mapped;
             });
-            resultats_copy.forEach((res, index) => {
-                resultats_copy[index] = res + mapped;
-            })
-            resultats = resultats.concat(resultats_copy);
         }
     }
     return resultats;
 }
 
-
-function accentInsensitiveSearch(toSearch, searchIn) {
+function accentInsensitiveSearch(toSearch, searchIn, options = {}) {
   if (!searchIn) {
       return false;
   }
@@ -66,7 +58,7 @@ function accentInsensitiveSearch(toSearch, searchIn) {
   }
   toSearch = toSearch.replace(/\s+/g, ' ');
   searchIn = searchIn.replace(/\s+/g, ' ').toLowerCase();
-  const re = accentRegExp(toSearch);
+  const re = accentRegExp(toSearch, options);
   var allStrings = replaceString(searchIn);
   var res = false;
   allStrings.forEach((str) => {
