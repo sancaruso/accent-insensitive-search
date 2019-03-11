@@ -15,7 +15,7 @@ import accentInsensitiveSearch from 'accent-insensitive-search';
 accentInsensitiveSearch(value, searchIn);
 ```
 
-`accentInsensitiveSearch(value, searchIn)` returns `true` if `value` is in `searchIn` (case and accent insensitive), and 
+`accentInsensitiveSearch(value, searchIn)` returns `true` if `value` is in `searchIn` (case and accent insensitive), and
 `false` else.
 
 ## Options
@@ -26,11 +26,14 @@ accentInsensitiveSearch(value, searchIn, options);
 `options` can be on the form:
 ```
 {
-  startWith: boolean
+  startWith: boolean,
+  endWith: boolean,
 }
 ```
 
 The option `startWith: true` can be used if you only want to find strings starting with the search value. Otherwise, with the default option `startWith: false` you find strings containing the search value.
+
+The option `endWith: true` can be used if you only want to find strings ending with the search value. Otherwise, with the default option `endWith: false` you find strings containing the search value.
 
 ## Accent mapping
 

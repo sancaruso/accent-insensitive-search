@@ -37,6 +37,16 @@ tests.push({
   errorMsg: 'accentInsensitiveSearch(\'mul\', \'Müller\', {startWith: true}) should be true'
 });
 tests.push({
+  result: accentInsensitiveSearch('ul', 'Müller', {endWith: true}) === false,
+  successMsg: 'accentInsensitiveSearch(\'ul\', \'Müller\', {endWith: true}) is false',
+  errorMsg: 'accentInsensitiveSearch(\'ul\', \'Müller\', {endWith: true}) should be false'
+});
+tests.push({
+  result: accentInsensitiveSearch('uller', 'Müller', {endWith: true}) === true,
+  successMsg: 'accentInsensitiveSearch(\'uller\', \'Müller\', {endWith: true}) is true',
+  errorMsg: 'accentInsensitiveSearch(\'uller\', \'Müller\', {endWith: true}) should be true'
+});
+tests.push({
   result: accentInsensitiveSearch('Jean chris', 'Jean-Christophe') === true,
   successMsg: 'accentInsensitiveSearch(\'Jean chris\', \'Jean-Christophe\') is true',
   errorMsg: 'accentInsensitiveSearch(\'Jean chris\', \'Jean-Christophe\') should be true'

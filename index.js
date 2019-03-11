@@ -18,6 +18,9 @@ function accentRegExp(word, options = {}) {
           res += '(?:' + char + '|(?:' + mapped + '))';
       }
   }
+  if (options.endWith) {
+      res += '$';
+  }
   return new RegExp(res);
 }
 
